@@ -7,7 +7,7 @@ import java.nio.charset.StandardCharsets;
 import org.apache.flink.statefun.sdk.kafka.KafkaEgressSerializer;
 import org.apache.flink.statefun.sdk.reqreply.generated.TypedValue;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.listware.sdk.Functions;
+import org.listware.sdk.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -21,13 +21,13 @@ public class KafkaEgressTypedValueSerializer implements KafkaEgressSerializer<Ty
 	@Override
 	public ProducerRecord<byte[], byte[]> serialize(TypedValue message) {
 		try {
-			Functions.FunctionResult functionResult = Functions.FunctionResult.parseFrom(message.getValue());
+			Result.FunctionResult functionResult = Result.FunctionResult.parseFrom(message.getValue());
 
-			Functions.ReplyEgress replyEgress = functionResult.getReplyEgress();
+			Result.ReplyResult replyEgress = functionResult.getReplyEgress();
 
 			String topic = replyEgress.getTopic();
 
-			byte[] key = replyEgress.getId().getBytes(StandardCharsets.UTF_8);
+			byte[] key = replyEgress.getKey().getBytes(StandardCharsets.UTF_8);
 			byte[] value = message.toByteArray();
 
 			return new ProducerRecord<byte[], byte[]>(topic, key, value);

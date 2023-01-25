@@ -1,6 +1,6 @@
 /* Copyright 2022 Listware */
 
-package org.listware.io.functions.egress;
+package org.listware.io.functions.result;
 
 import org.apache.flink.statefun.sdk.io.EgressIdentifier;
 import org.apache.flink.statefun.sdk.io.EgressSpec;

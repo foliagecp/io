@@ -1,6 +1,6 @@
 /* Copyright 2022 Listware */
 
-package org.listware.io.functions.egress;
+package org.listware.io.functions.result;
 
 import java.util.Properties;
 

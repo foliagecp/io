@@ -5,7 +5,7 @@ package org.listware.io;
 import java.util.Map;
 
 import org.apache.flink.statefun.sdk.spi.StatefulFunctionModule;
-import org.listware.io.functions.egress.Egress;
+import org.listware.io.functions.result.Egress;
 import org.listware.io.router.IngressRouter;
 
 import com.google.auto.service.AutoService;

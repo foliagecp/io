@@ -9,9 +9,9 @@ import org.apache.flink.statefun.sdk.io.Router;
 import org.apache.flink.statefun.sdk.kafka.KafkaIngressBuilder;
 import org.apache.flink.statefun.sdk.reqreply.generated.TypedValue;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
-import org.listware.sdk.Functions.FunctionContext;
 import org.listware.io.utils.Constants;
 import org.listware.io.utils.TypedValueDeserializer;
+import org.listware.sdk.Functions.FunctionContext;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 

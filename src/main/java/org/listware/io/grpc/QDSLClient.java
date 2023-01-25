@@ -1,6 +1,6 @@
 /* Copyright 2022 Listware */
 
-package org.listware.io.utils;
+package org.listware.io.grpc;
 
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
@@ -8,16 +8,16 @@ import io.grpc.StatusRuntimeException;
 
 import java.util.concurrent.TimeUnit;
 
+import org.listware.io.utils.Constants.Cmdb;
 import org.listware.sdk.pbcmdb.pbqdsl.QDSL;
 import org.listware.sdk.pbcmdb.pbqdsl.QdslServiceGrpc;
-import org.listware.io.utils.Constants.Cmdb.Qdsl;
 
 public class QDSLClient {
 	private final ManagedChannel channel;
 	private final QdslServiceGrpc.QdslServiceBlockingStub blockingStub;
 
 	public QDSLClient() {
-		this(ManagedChannelBuilder.forAddress(Qdsl.ADDR, Qdsl.PORT).usePlaintext().build());
+		this(ManagedChannelBuilder.forAddress(Cmdb.ADDR, Cmdb.PORT).usePlaintext().build());
 	}
 
 	public QDSLClient(ManagedChannel channel) {

@@ -7,7 +7,7 @@ public class Constants {
 		// Internal java functions namespace
 		public static final String INTERNAL = "system";
 		// External proxy functions namespace
-		public static final String EXTERNAL = "proxy";
+		public static final String EXTERNAL = "proxy.listware";
 	}
 
 	public class Kafka {
@@ -15,17 +15,8 @@ public class Constants {
 	}
 
 	public class Cmdb {
-		// FIXME from secrets
-		public static final String ADDR = "cmdb.service.consul";
-		public static final int PORT = 8529;
-		public static final String USER = "root";
-		public static final String PASSWORD = "password";
-		public static final String DBNAME = "CMDBv2";
-
-		public class Qdsl {
-			public static final String ADDR = "qdsl.cmdb.service.consul";
-			public static final int PORT = 31415;
-		}
+		public static final String ADDR = "cmdb";
+		public static final int PORT = 31415;
 	}
 
 }
