@@ -1,4 +1,7 @@
-/* Copyright 2022 Listware */
+/*
+ *  Copyright 2023 NJWS Inc.
+ *  Copyright 2022 Listware
+ */
 
 package org.listware.io.functions.result;
 
@@ -22,7 +25,7 @@ public class EgressWriter {
 	private KafkaProducer<String, TypedValue> producer;
 
 	public EgressWriter() {
-		properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, Constants.Kafka.SERVER);
+		properties.setProperty(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG, Constants.Kafka.Addr());
 		properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
 		properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, KafkaTypedValueSerializer.class.getName());
 

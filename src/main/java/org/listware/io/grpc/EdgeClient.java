@@ -1,4 +1,7 @@
-/* Copyright 2022 Listware */
+/*
+ *  Copyright 2023 NJWS Inc.
+ *  Copyright 2022 Listware
+ */
 
 package org.listware.io.grpc;
 
@@ -26,7 +29,7 @@ public class EdgeClient {
 	private final EdgeServiceGrpc.EdgeServiceBlockingStub blockingStub;
 
 	public EdgeClient() {
-		this(ManagedChannelBuilder.forAddress(Cmdb.ADDR, Cmdb.PORT).usePlaintext().build());
+		this(ManagedChannelBuilder.forAddress(Cmdb.Addr(), Cmdb.Port()).usePlaintext().build());
 	}
 
 	public EdgeClient(ManagedChannel channel) {

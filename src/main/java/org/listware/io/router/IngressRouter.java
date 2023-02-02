@@ -1,4 +1,7 @@
-/* Copyright 2022 Listware */
+/*
+ *  Copyright 2023 NJWS Inc.
+ *  Copyright 2022 Listware
+ */
 
 package org.listware.io.router;
 
@@ -28,7 +31,7 @@ public class IngressRouter implements Router<TypedValue> {
 			Constants.Namespaces.INTERNAL, INGRESS_TOPIC_NAME);
 
 	public static IngressSpec<TypedValue> INGRESS_SPEC = KafkaIngressBuilder.forIdentifier(INGRESS)
-			.withProperty(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID).withKafkaAddress(Constants.Kafka.SERVER)
+			.withProperty(ConsumerConfig.GROUP_ID_CONFIG, GROUP_ID).withKafkaAddress(Constants.Kafka.Addr())
 			.withTopic(INGRESS_TOPIC_NAME).withDeserializer(TypedValueDeserializer.class).build();
 
 	@Override
