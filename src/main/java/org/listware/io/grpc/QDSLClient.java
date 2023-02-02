@@ -1,4 +1,7 @@
-/* Copyright 2022 Listware */
+/*
+ *  Copyright 2023 NJWS Inc.
+ *  Copyright 2022 Listware
+ */
 
 package org.listware.io.grpc;
 
@@ -17,7 +20,7 @@ public class QDSLClient {
 	private final QdslServiceGrpc.QdslServiceBlockingStub blockingStub;
 
 	public QDSLClient() {
-		this(ManagedChannelBuilder.forAddress(Cmdb.ADDR, Cmdb.PORT).usePlaintext().build());
+		this(ManagedChannelBuilder.forAddress(Cmdb.Addr(), Cmdb.Port()).usePlaintext().build());
 	}
 
 	public QDSLClient(ManagedChannel channel) {

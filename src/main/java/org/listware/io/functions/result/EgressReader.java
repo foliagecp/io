@@ -1,4 +1,7 @@
-/* Copyright 2022 Listware */
+/*
+ *  Copyright 2023 NJWS Inc.
+ *  Copyright 2022 Listware
+ */
 
 package org.listware.io.functions.result;
 
@@ -32,7 +35,7 @@ public class EgressReader {
 	public EgressReader(String groupID, String topic) {
 		this.topic = topic;
 
-		properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, Constants.Kafka.SERVER);
+		properties.setProperty(ConsumerConfig.BOOTSTRAP_SERVERS_CONFIG, Constants.Kafka.Addr());
 		properties.setProperty(ConsumerConfig.KEY_DESERIALIZER_CLASS_CONFIG, StringDeserializer.class.getName());
 		properties.setProperty(ConsumerConfig.VALUE_DESERIALIZER_CLASS_CONFIG,
 				KafkaTypedValueDeserializer.class.getName());
