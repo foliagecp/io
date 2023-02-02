@@ -2,7 +2,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>org.listware</groupId>
 	<artifactId>io</artifactId>
-	<version>1.1</version>
+	<version>0.1.0</version>
 	<packaging>jar</packaging>
 
 	<properties>
@@ -79,18 +79,22 @@
 	</build>
 	<repositories>
 		<repository>
-			<id>gitea</id>
-			<url>http://git.fg-tech.ru/api/packages/listware/maven</url>
+			<id>proto</id>
+			<url>https://maven.pkg.github.com/foliagecp/proto</url>
+		</repository>
+		<repository>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/foliagecp/io</url>
 		</repository>
 	</repositories>
 	<distributionManagement>
 		<repository>
-			<id>gitea</id>
-			<url>http://git.fg-tech.ru/api/packages/listware/maven</url>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/foliagecp/io</url>
 		</repository>
 		<snapshotRepository>
-			<id>gitea</id>
-			<url>http://git.fg-tech.ru/api/packages/listware/maven</url>
+			<id>github</id>
+			<url>https://maven.pkg.github.com/foliagecp/io</url>
 		</snapshotRepository>
 	</distributionManagement>
 </project>
