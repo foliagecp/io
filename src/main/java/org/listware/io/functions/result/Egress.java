@@ -1,4 +1,7 @@
-/* Copyright 2022 Listware */
+/*
+ *  Copyright 2023 NJWS Inc.
+ *  Copyright 2022 Listware
+ */
 
 package org.listware.io.functions.result;
 
@@ -16,5 +19,5 @@ public class Egress {
 			EGRESS_NAME, TypedValue.class);
 
 	public static EgressSpec<TypedValue> EGRESS_SPEC = KafkaEgressBuilder.forIdentifier(EGRESS)
-			.withKafkaAddress(Constants.Kafka.SERVER).withSerializer(KafkaEgressTypedValueSerializer.class).build();
+			.withKafkaAddress(Constants.Kafka.Addr()).withSerializer(KafkaEgressTypedValueSerializer.class).build();
 }
