@@ -8,6 +8,9 @@ package org.listware.io.utils;
 import java.util.Map;
 
 public class Constants {
+	public static final String MESSAGE_TYPENAME = "type.googleapis.com/org.listware.sdk.pbtypes.FunctionContext";
+	public static final String RESULT_MESSAGE_TYPENAME = "type.googleapis.com/org.listware.sdk.pbtypes.FunctionResult";
+
 	private static final Map<String, String> env = System.getenv();
 
 	public class Namespaces {
