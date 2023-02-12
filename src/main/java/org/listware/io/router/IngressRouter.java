@@ -45,7 +45,7 @@ public class IngressRouter implements Router<TypedValue> {
 
 			FunctionType functionType = new FunctionType(namespace, type);
 
-			LOG.info("router ingress " + message.getTypename());
+			LOG.debug("router ingress " + message.getTypename());
 
 			downstream.forward(functionType, functionContext.getId(), message);
 		} catch (InvalidProtocolBufferException e) {
