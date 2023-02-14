@@ -56,6 +56,11 @@ public class EdgeClient {
 		return blockingStub.update(request);
 	}
 
+	public Response replace(String collection, String key, ByteString payload) throws Exception {
+		Request request = Request.newBuilder().setCollection(collection).setKey(key).setPayload(payload).build();
+		return blockingStub.replace(request);
+	}
+
 	public Response remove(String collection, String key) throws Exception {
 		Request request = Request.newBuilder().setCollection(collection).setKey(key).build();
 		return blockingStub.remove(request);
