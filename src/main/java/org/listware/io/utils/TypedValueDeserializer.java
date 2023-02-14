@@ -1,4 +1,7 @@
-/* Copyright 2022 Listware */
+/*
+ *  Copyright 2023 NJWS Inc.
+ *  Copyright 2022 Listware
+ */
 
 package org.listware.io.utils;
 
@@ -14,10 +17,12 @@ public class TypedValueDeserializer implements KafkaIngressDeserializer<TypedVal
 
 	@Override
 	public TypedValue deserialize(ConsumerRecord<byte[], byte[]> input) {
-		return TypedValue.newBuilder().setValue(ByteString.copyFrom(input.value())).setHasValue(true).build();
+		return TypedValue.newBuilder().setValue(ByteString.copyFrom(input.value())).setHasValue(true)
+				.setTypename(Constants.MESSAGE_TYPENAME).build();
 	}
 
 	public static TypedValue fromMessageLite(FunctionContext functionContext) {
-		return TypedValue.newBuilder().setValue(functionContext.toByteString()).setHasValue(true).build();
+		return TypedValue.newBuilder().setValue(functionContext.toByteString()).setHasValue(true)
+				.setTypename(Constants.MESSAGE_TYPENAME).build();
 	}
 }

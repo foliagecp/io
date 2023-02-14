@@ -20,4 +20,5 @@ public class Egress {
 
 	public static EgressSpec<TypedValue> EGRESS_SPEC = KafkaEgressBuilder.forIdentifier(EGRESS)
 			.withKafkaAddress(Constants.Kafka.Addr()).withSerializer(KafkaEgressTypedValueSerializer.class).build();
+
 }

@@ -1,16 +1,18 @@
-/* Copyright 2022 Listware */
+/*
+ *  Copyright 2023 NJWS Inc.
+ *  Copyright 2022 Listware
+ */
 
 package org.listware.io.utils;
 
 import java.nio.charset.StandardCharsets;
 
+import org.apache.flink.statefun.sdk.egress.generated.KafkaProducerRecord;
 import org.apache.flink.statefun.sdk.kafka.KafkaEgressSerializer;
 import org.apache.flink.statefun.sdk.reqreply.generated.TypedValue;
 import org.apache.kafka.clients.producer.ProducerRecord;
-import org.listware.sdk.Result;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
 import com.google.protobuf.InvalidProtocolBufferException;
 
 public class KafkaEgressTypedValueSerializer implements KafkaEgressSerializer<TypedValue> {
@@ -20,22 +22,22 @@ public class KafkaEgressTypedValueSerializer implements KafkaEgressSerializer<Ty
 
 	@Override
 	public ProducerRecord<byte[], byte[]> serialize(TypedValue message) {
+		// TODO errors egress?
+		String topic = "default";
+		String key = "default";
+		byte[] value = "default".getBytes();
+
 		try {
-			Result.FunctionResult functionResult = Result.FunctionResult.parseFrom(message.getValue());
-
-			Result.ReplyResult replyEgress = functionResult.getReplyEgress();
-
-			String topic = replyEgress.getTopic();
-
-			byte[] key = replyEgress.getKey().getBytes(StandardCharsets.UTF_8);
-			byte[] value = message.toByteArray();
-
-			return new ProducerRecord<byte[], byte[]>(topic, key, value);
+			KafkaProducerRecord kafkaProducerRecord = KafkaProducerRecord.parseFrom(message.getValue());
+			topic = kafkaProducerRecord.getTopic();
+			key = kafkaProducerRecord.getKey();
+			value = message.toByteArray();
 		} catch (InvalidProtocolBufferException e) {
 			LOG.error(e.getLocalizedMessage());
+		} catch (Exception e) {
+			LOG.error(e.getLocalizedMessage());
 		}
-
-		return null;
+		return new ProducerRecord<byte[], byte[]>(topic, key.getBytes(StandardCharsets.UTF_8), value);
 	}
 
 }
